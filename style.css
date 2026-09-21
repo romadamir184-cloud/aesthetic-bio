@@ -1,0 +1,467 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+body {
+    background: #000;
+    color: white;
+    font-family: Arial, sans-serif;
+}
+
+
+/* =========================
+   ОСНОВА
+========================= */
+
+.scene {
+    position: relative;
+
+    width: 100%;
+    height: 100dvh;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #4b4b4b 0%,
+            #222 25%,
+            #080808 65%,
+            #000 100%
+        );
+}
+
+
+/* =========================
+   БОЛЬШОЙ ХРОМ
+========================= */
+
+.chrome {
+    position: absolute;
+
+    width: 310px;
+    height: 310px;
+
+    left: 50%;
+    top: 43%;
+
+    transform: translate(-50%, -50%);
+
+    border-radius: 50%;
+
+    background:
+        linear-gradient(
+            120deg,
+            #050505,
+            #666,
+            #fff,
+            #333,
+            #eee,
+            #555,
+            #fff,
+            #111
+        );
+
+    background-size: 300% 300%;
+
+    box-shadow:
+        0 0 40px rgba(255,255,255,.3),
+        0 0 100px rgba(255,255,255,.15),
+        inset -35px -35px 60px rgba(0,0,0,.8),
+        inset 30px 25px 50px rgba(255,255,255,.45);
+
+    animation:
+        chromeMove 5s ease-in-out infinite,
+        chromeFloat 6s ease-in-out infinite;
+
+    z-index: 1;
+}
+
+
+@keyframes chromeMove {
+
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+
+@keyframes chromeFloat {
+
+    0%,
+    100% {
+        margin-top: 0;
+        border-radius: 50%;
+    }
+
+    50% {
+        margin-top: -15px;
+        border-radius: 45% 55% 52% 48%;
+    }
+}
+
+
+/* =========================
+   БЛИКИ
+========================= */
+
+.shine {
+    position: absolute;
+
+    width: 150px;
+    height: 40px;
+
+    border-radius: 50%;
+
+    background: white;
+
+    filter: blur(18px);
+
+    opacity: .35;
+
+    z-index: 2;
+
+    animation: shineMove 4s ease-in-out infinite;
+}
+
+
+.shine-1 {
+    top: 22%;
+    left: 5%;
+    transform: rotate(-30deg);
+}
+
+
+.shine-2 {
+    right: 0;
+    bottom: 25%;
+    transform: rotate(-30deg);
+
+    animation-delay: 2s;
+}
+
+
+@keyframes shineMove {
+
+    0%,
+    100% {
+        opacity: .15;
+    }
+
+    50% {
+        opacity: .7;
+    }
+}
+
+
+/* =========================
+   LIQUID GLASS
+========================= */
+
+.glass {
+    position: absolute;
+
+    background: rgba(255,255,255,.1);
+
+    border: 1px solid rgba(255,255,255,.3);
+
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    box-shadow:
+        0 10px 35px rgba(0,0,0,.5),
+        inset 0 1px rgba(255,255,255,.35);
+
+    z-index: 3;
+
+    animation: glassFloat 5s ease-in-out infinite;
+}
+
+
+.glass-1 {
+    width: 65px;
+    height: 65px;
+
+    left: 7%;
+    top: 14%;
+
+    border-radius: 22px;
+}
+
+
+.glass-2 {
+    width: 95px;
+    height: 45px;
+
+    right: 5%;
+    top: 30%;
+
+    border-radius: 30px;
+
+    animation-delay: 1s;
+}
+
+
+.glass-3 {
+    width: 55px;
+    height: 55px;
+
+    left: 12%;
+    bottom: 19%;
+
+    border-radius: 50%;
+
+    animation-delay: 2s;
+}
+
+
+@keyframes glassFloat {
+
+    0%,
+    100% {
+        transform: translateY(0) rotate(0);
+    }
+
+    50% {
+        transform: translateY(-18px) rotate(7deg);
+    }
+}
+
+
+/* =========================
+   КОНТЕНТ
+========================= */
+
+.content {
+    position: absolute;
+
+    inset: 0;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    z-index: 10;
+
+    transition: .8s;
+}
+
+
+/* =========================
+   AESTHETIC BIO
+========================= */
+
+.title {
+    font-size: 48px;
+
+    line-height: .9;
+
+    font-weight: 900;
+
+    letter-spacing: -3px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #fff,
+            #777,
+            #fff,
+            #333,
+            #eee
+        );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    color: transparent;
+
+    text-shadow:
+        0 3px 5px rgba(0,0,0,.8),
+        0 0 25px rgba(255,255,255,.2);
+
+    transform:
+        perspective(500px)
+        rotateX(8deg);
+}
+
+
+.subtitle {
+    margin-top: 15px;
+
+    font-size: 9px;
+
+    letter-spacing: 4px;
+
+    color: rgba(255,255,255,.65);
+}
+
+
+/* =========================
+   ENTER
+========================= */
+
+.enter {
+    margin-top: 40px;
+
+    width: 160px;
+    height: 55px;
+
+    border-radius: 30px;
+
+    border: 1px solid rgba(255,255,255,.35);
+
+    background: rgba(255,255,255,.1);
+
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    color: white;
+
+    font-size: 12px;
+
+    letter-spacing: 4px;
+
+    box-shadow:
+        0 12px 40px rgba(0,0,0,.5),
+        inset 0 1px rgba(255,255,255,.35);
+}
+
+
+.enter:active {
+    transform: scale(.9);
+}
+
+
+/* =========================
+   SWIPE
+========================= */
+
+.swipe {
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    bottom: 25px;
+
+    text-align: center;
+
+    font-size: 9px;
+
+    letter-spacing: 3px;
+
+    color: rgba(255,255,255,.45);
+
+    z-index: 10;
+
+    animation: swipeMove 2s infinite;
+}
+
+
+@keyframes swipeMove {
+
+    0%,
+    100% {
+        transform: translateY(0);
+        opacity: .4;
+    }
+
+    50% {
+        transform: translateY(-8px);
+        opacity: 1;
+    }
+}
+
+
+/* =========================
+   ПЕРЕХОД
+========================= */
+
+.transition-left,
+.transition-right {
+    position: fixed;
+
+    top: 0;
+
+    width: 50%;
+    height: 100%;
+
+    background: #050505;
+
+    z-index: 100;
+
+    transition:
+        transform .8s cubic-bezier(.77,0,.18,1);
+}
+
+
+.transition-left {
+    left: 0;
+    transform: translateX(-100%);
+}
+
+
+.transition-right {
+    right: 0;
+    transform: translateX(100%);
+}
+
+
+body.opened .transition-left {
+    transform: translateX(0);
+}
+
+
+body.opened .transition-right {
+    transform: translateX(0);
+}
+
+
+body.opened .content {
+    transform: scale(1.15);
+    opacity: 0;
+}
+
+
+body.opened .chrome {
+    transform: translate(-50%, -50%) scale(1.5);
+    opacity: 0;
+    transition: 1s;
+}
+
+
+/* =========================
+   МОБИЛЬНЫЙ ФОРМАТ
+========================= */
+
+@media (min-width: 700px) {
+
+    .scene {
+        max-width: 430px;
+        margin: auto;
+    }
+
+}
+
