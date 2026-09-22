@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aesthetic Bio — Friends</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="friends-page">
+
+    <div class="friends-bg"></div>
+
+    <div class="friends-content">
+
+        <div class="friends-title">
+            CHOOSE<br>
+            YOUR FRIEND
+        </div>
+
+        <div class="friend-card" id="friendCard">
+
+            <div class="friend-photo-wrap">
+                <img src="friend1.jpg"
+                     class="friend-photo"
+                     id="friendPhoto">
+            </div>
+
+            <div class="friend-name">DAMIR</div>
+
+            <div class="friend-info">
+                PERSONAL PROFILE
+            </div>
+
+            <button class="friend-button" id="openFriend">
+                OPEN
+            </button>
+
+        </div>
+
+    </div>
+
+    <script>
+        const button = document.getElementById("openFriend");
+        const card = document.getElementById("friendCard");
+        const photo = document.getElementById("friendPhoto");
+
+        button.addEventListener("click", function () {
+
+            button.innerText = "OPENING...";
+
+            card.classList.add("friend-opening");
+            photo.classList.add("photo-opening");
+
+            setTimeout(function () {
+                window.location.href = "damir.html";
+            }, 1100);
+
+        });
+    </script>
+
+</body>
+</html>
